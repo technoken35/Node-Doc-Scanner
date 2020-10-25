@@ -4,7 +4,8 @@
   "description": "Document Scanner with node using Google Vision API & OCR",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon app.js"
   },
   "keywords": [
     "Node",
@@ -17,6 +18,8 @@
   "author": "Kendall Hayes",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "@google-cloud/vision": "^2.1.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
   }
 }
