@@ -1,0 +1,19 @@
+{
+  "name": "node-google-vision-document-scanner",
+  "version": "1.0.0",
+  "description": "Document Scanner with node using Google Vision API & OCR",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Google",
+    "Vision",
+    "Google",
+    "AI",
+    "OCR"
+  ],
+  "author": "Kendall Hayes",
+  "license": "MIT"
+}
