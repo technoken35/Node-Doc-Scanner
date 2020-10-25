@@ -1,14 +1,15 @@
-const http = require('http');
-
-const hostname = '127.0.0.1';
+const express = require('express');
+const app = express();
 const port = 8124;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'html');
-  res.end('First bit of node');
+app.get('/', (req, res) => {
+  res.send('Hello from node with express framework');
 });
 
-server.listen(port, hostname, () => {
-  console.log('Server running at http//:$(hostname):$(port)/');
+app.get('/scanner', (req, res) => {
+  res.send('Scanner route');
+});
+
+app.listen(port, () => {
+  console.log(`listening on http://localhost:${port}`);
 });
