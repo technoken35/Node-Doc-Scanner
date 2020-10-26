@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const ipAddress = '127.0.0.1';
 const port = 8124;
+var cors = require('cors');
+var bodyParser = require('body-parser');
 
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
@@ -25,13 +27,24 @@ async function runOCR() {
   //return data;
 }
 
-runOCR();
+// allow CORS from all origins
+app.use(cors());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json. Parse response/requests bodies to JSON
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('homepage route');
 });
 
+app.post('/upload', (req, res) => {
+  res.send(req.body);
+});
+
 app.get('/scanner', async (req, res) => {
+  console.log(req);
   const [asyncData] = await client.labelDetection('./resources/nodejs.jpg');
   const data = asyncData.labelAnnotations;
   res.send(data);
